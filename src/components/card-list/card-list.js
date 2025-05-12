@@ -14,7 +14,14 @@ export class CardList extends DivComponent {
             this.el.innerHTML = '<div class="card_list__loader">Загрузка...</div>';
             return this.el;
         }
-
+        if(this.parentState.list.length === 0) {
+            this.el.innerHTML = `
+                <div class="card_list__empty">
+                    Попробуйте найти книгу через поиск выше
+                </div>
+            `;
+            return this.el;
+        }
 
         const cardGrid = document.createElement('div');
         cardGrid.classList.add('card_grid');

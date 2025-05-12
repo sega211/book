@@ -8,18 +8,36 @@ export class Card extends DivComponent {
         this.cardState= cardState;
     }
     #addToFavorites() {
-        this.appState.favorites.push(this.cardState)
+        this.appState.favorites = [
+            ...this.appState.favorites,
+            {
+                key: this.cardState.key, // Обязательное поле
+                title: this.cardState.title,
+                author_name: this.cardState.author_name,
+                cover_edition_key: this.cardState.cover_edition_key,
+                subject: this.cardState.subject?.[0] // Для тегов
+            }
+        ];
     }
     #deleteFromFavorites() {
-        this.appState.favorites = this.appState.favorites.filter(b => b.key !== this.cardState.key)
+        this.appState.favorites = this.appState.favorites.filter(b => b.key !== this.cardState.key);
+        this.appState.favorites = [...this.appState.favorites];
     }
 
     render() {
         this.el.classList.add('card');
-        const existsInFavorites = this.appState.favorites.find(b => b.key == this.cardState.key)
+        const existsInFavorites = this.appState.favorites.find(b => b.key == this.cardState.key);
+
+        const coverImageUrl = this.cardState.cover_edition_key
+            ? `https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-M.jpg`
+            : '/static/book1.jpeg';
         this.el.innerHTML = `
             <div class="card__image">
-                <img src="https://covers.openlibrary.org/b/olid/${this.cardState.cover_edition_key}-M.jpg" alt="Обложка"/>
+                <img 
+                    src="${coverImageUrl}" 
+                    alt="Обложка"
+                    onerror="this.src='/static/book1.jpeg';"
+                />
             </div>
             <div class="card__info">
                 <div class="card__tag">

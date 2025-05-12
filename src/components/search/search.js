@@ -10,6 +10,7 @@ export class Search extends DivComponent {
     search() {
         const value = this.el.querySelector('input').value;
         this.state.searchQuery = value;
+        this.state.offset = 0;
     }
     render() {
 
