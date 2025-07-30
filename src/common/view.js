@@ -8,10 +8,10 @@ export  class AbstractView {
     }
 
     render () {
-        return
+        throw new Error('Method render() must be implemented in the child class');
     }
 
     destroy()  {
-        return
-    }
+            
+}
 }

@@ -1,0 +1,44 @@
+/* Стили для панели фильтров */
+.category-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-x: initial;/* Позволяет скроллить по горизонтали на мобильных */
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.category-filter::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.filter-button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 20px; /* Овальная форма */
+    cursor: pointer;
+    white-space: nowrap; /* Чтобы текст не переносился */
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень для объема */
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0; /* Цвет при наведении */
+    border-color: #bbb;
+    transform: translateY(-1px); /* Небольшой подъем при наведении */
+}
+
+.filter-button.active {
+    background-color: #ff9800; /* Оранжевый цвет */
+    color: white;
+    border-color: #e68900;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2); /* Эффект "вдавленности" */
+    transform: translateY(1px); /* Сдвиг вниз для эффекта нажатия */
+}
+
+.filter-button.active:hover {
+    background-color: #e68900; /* Более темный оранжевый при наведении на активную */
+}

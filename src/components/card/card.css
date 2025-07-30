@@ -3,6 +3,13 @@
     flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card__image {
@@ -14,10 +21,9 @@
     height: 180px;
 }
 .card__image img {
-    width: 80%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
+    height: 100%; /* Занимаем всю высоту контейнера */
+    width: auto; /* Ширина подстраивается для сохранения пропорций */
+    object-fit: contain; /* Гарантирует, что вся обложка видна */
 }
 
 .card__info {
@@ -40,16 +46,16 @@
     font-weight: 600;
     line-height: 21px;
     margin-bottom: 8px;
-}
-.card__author {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 15px;
-    margin-bottom: 32px;
+    white-space: nowrap;      /* Запрещаем перенос строк */
+    overflow: hidden;         /* Скрываем текст, который не помещается */
+    text-overflow: ellipsis;  /* Добавляем многоточие (...) в конце */
+    max-width: 100%;
 }
 .card__footer {
     margin-top: auto;
     display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .button__add {
@@ -62,8 +68,41 @@
     background: none;
     border: 1px solid var(--white);
     cursor: pointer;
+    flex-shrink: 0; /* Не сжиматься */
 }
 
 .button__active {
     background: var(--white);
+}
+
+.card__status {
+    flex-grow: 1; /* Занимает доступное пространство */
+    min-width: 0; /* Исправляет проблему с переполнением в flex-контейнерах */
+}
+
+.status-select {
+    width: 100%;
+    padding: 6px 4px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.button__read {
+    border-radius: 6px;
+    height: 32px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--white);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0; /* Не сжиматься */
 }

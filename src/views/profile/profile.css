@@ -1,0 +1,66 @@
+.profile-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.profile-container h1, .profile-container h2 {
+    text-align: center;
+    font-weight: 300;
+}
+
+.profile-form .form-group {
+    margin-bottom: 15px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.profile-form button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.profile-form button:hover {
+    background: #218838;
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    display: none; /* Скрыто по умолчанию */
+}
+
+.form-message.success, .form-message.error {
+    display: block; /* Показываем, когда есть класс */
+    color: white;
+    border: none;
+}
+
+.form-message.success { background-color: #28a745; }
+.form-message.error { background-color: #dc3545; }

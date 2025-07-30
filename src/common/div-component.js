@@ -3,6 +3,6 @@ export class DivComponent {
         this.el = document.createElement('div');
     }
     render() {
-        this.el;
+         return this.el;
     }
 }
